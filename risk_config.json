@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2025-09-19T16:30:09.993331",
+  "last_updated": "2025-09-19T23:34:20.150644",
   "position_coefficients": {
     "BTCUSD": {
       "min_lot": 0.01,
@@ -52,7 +52,6 @@
       "coefficient": 5,
       "asset_class": "crypto"
     },
-    
     "AUDUSD": {
       "min_lot": 0.01,
       "coefficient": 1,
@@ -107,6 +106,16 @@
       "min_lot": 0.01,
       "coefficient": 1,
       "asset_class": "precious_metal"
+    },
+    "ADAUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1.0,
+      "asset_class": "crypto"
+    },
+    "EURJPY": {
+      "min_lot": 0.01,
+      "coefficient": 1.0,
+      "asset_class": "forex"
     }
   },
   "market_condition_multipliers": {
