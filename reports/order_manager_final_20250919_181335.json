@@ -1,0 +1,87 @@
+{
+  "execution_statistics": {
+    "total_orders": 10,
+    "successful_orders": 10,
+    "failed_orders": 0,
+    "avg_execution_time": 0.0,
+    "total_volume": 0.34,
+    "total_cost": 0.0,
+    "active_positions_count": 0,
+    "success_rate": 1.0,
+    "total_unrealized_pnl": 0,
+    "total_realized_pnl": 0.0
+  },
+  "active_positions": {},
+  "recent_orders": [
+    {
+      "order_id": "d256abd6",
+      "status": "FILLED",
+      "executed_price": 115960.34,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:13:21.110035"
+    },
+    {
+      "order_id": "9a5f248b",
+      "status": "FILLED",
+      "executed_price": 4484.68,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:13:21.233434"
+    },
+    {
+      "order_id": "fbcb6b06",
+      "status": "FILLED",
+      "executed_price": 238.59,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:13:21.331304"
+    },
+    {
+      "order_id": "644dc368",
+      "status": "FILLED",
+      "executed_price": 3.0205,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:13:21.431269"
+    },
+    {
+      "order_id": "05e4defb",
+      "status": "FILLED",
+      "executed_price": 62.816,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:13:21.528475"
+    },
+    {
+      "order_id": "e919e250",
+      "status": "FILLED",
+      "executed_price": 115943.32,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:13:29.630635"
+    },
+    {
+      "order_id": "86d2529a",
+      "status": "FILLED",
+      "executed_price": 4481.64,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:13:29.731618"
+    },
+    {
+      "order_id": "a1f5ea6d",
+      "status": "FILLED",
+      "executed_price": 238.0,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:13:29.834886"
+    },
+    {
+      "order_id": "685c4042",
+      "status": "FILLED",
+      "executed_price": 3.0123,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:13:29.933227"
+    },
+    {
+      "order_id": "ddad9d6a",
+      "status": "FILLED",
+      "executed_price": 62.793,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:13:30.034136"
+    }
+  ]
+}

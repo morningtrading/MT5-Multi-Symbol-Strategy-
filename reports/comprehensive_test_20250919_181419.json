@@ -1,0 +1,319 @@
+{
+  "test_summary": {
+    "start_time": "2025-09-19T18:14:05.563197",
+    "end_time": "2025-09-19T18:14:19.520810",
+    "duration_seconds": 13.957613,
+    "overall_success_rate": 66.66666666666666,
+    "symbols_tested": 9,
+    "successful_tests": 24,
+    "total_tests": 36
+  },
+  "test_results": {
+    "infrastructure_init": {
+      "ALL": {
+        "success": true,
+        "details": "Initialized successfully with 9 symbols",
+        "timestamp": "2025-09-19T18:14:05.576307",
+        "data": {}
+      }
+    },
+    "symbol_validation": {
+      "BTCUSD": {
+        "success": true,
+        "details": "Min lot: 0.01, Spread: 1708",
+        "timestamp": "2025-09-19T18:14:05.576796",
+        "data": {
+          "min_lot": 0.01,
+          "spread": 1708
+        }
+      },
+      "ETHUSD": {
+        "success": true,
+        "details": "Min lot: 0.01, Spread: 302",
+        "timestamp": "2025-09-19T18:14:05.576901",
+        "data": {
+          "min_lot": 0.01,
+          "spread": 302
+        }
+      },
+      "SOLUSD": {
+        "success": true,
+        "details": "Min lot: 0.01, Spread: 54",
+        "timestamp": "2025-09-19T18:14:05.576976",
+        "data": {
+          "min_lot": 0.01,
+          "spread": 54
+        }
+      },
+      "XRPUSD": {
+        "success": true,
+        "details": "Min lot: 0.01, Spread: 84",
+        "timestamp": "2025-09-19T18:14:05.577050",
+        "data": {
+          "min_lot": 0.01,
+          "spread": 84
+        }
+      },
+      "US2000": {
+        "success": true,
+        "details": "Min lot: 0.1, Spread: 62",
+        "timestamp": "2025-09-19T18:14:05.577257",
+        "data": {
+          "min_lot": 0.1,
+          "spread": 62
+        }
+      },
+      "NAS100": {
+        "success": true,
+        "details": "Min lot: 0.1, Spread: 70",
+        "timestamp": "2025-09-19T18:14:05.577333",
+        "data": {
+          "min_lot": 0.1,
+          "spread": 70
+        }
+      },
+      "NAS100ft": {
+        "success": true,
+        "details": "Min lot: 0.1, Spread: 170",
+        "timestamp": "2025-09-19T18:14:05.577410",
+        "data": {
+          "min_lot": 0.1,
+          "spread": 170
+        }
+      },
+      "SP500ft": {
+        "success": true,
+        "details": "Min lot: 0.1, Spread: 129",
+        "timestamp": "2025-09-19T18:14:05.577483",
+        "data": {
+          "min_lot": 0.1,
+          "spread": 129
+        }
+      },
+      "USOUSD": {
+        "success": true,
+        "details": "Min lot: 0.01, Spread: 23",
+        "timestamp": "2025-09-19T18:14:05.577686",
+        "data": {
+          "min_lot": 0.01,
+          "spread": 23
+        }
+      }
+    },
+    "risk_evaluation": {
+      "BTCUSD": {
+        "success": true,
+        "details": "Approved: 0.01 lots",
+        "timestamp": "2025-09-19T18:14:05.578089",
+        "data": {
+          "approved_lot_size": 0.01
+        }
+      },
+      "ETHUSD": {
+        "success": true,
+        "details": "Approved: 0.05 lots",
+        "timestamp": "2025-09-19T18:14:05.578339",
+        "data": {
+          "approved_lot_size": 0.05
+        }
+      },
+      "SOLUSD": {
+        "success": true,
+        "details": "Approved: 0.05 lots",
+        "timestamp": "2025-09-19T18:14:05.578605",
+        "data": {
+          "approved_lot_size": 0.05
+        }
+      },
+      "US2000": {
+        "success": true,
+        "details": "Approved: 0.1 lots",
+        "timestamp": "2025-09-19T18:14:05.578854",
+        "data": {
+          "approved_lot_size": 0.1
+        }
+      },
+      "XRPUSD": {
+        "success": true,
+        "details": "Approved: 0.05 lots",
+        "timestamp": "2025-09-19T18:14:05.579092",
+        "data": {
+          "approved_lot_size": 0.05
+        }
+      },
+      "NAS100": {
+        "success": true,
+        "details": "Approved: 0.1 lots",
+        "timestamp": "2025-09-19T18:14:05.579329",
+        "data": {
+          "approved_lot_size": 0.1
+        }
+      },
+      "NAS100ft": {
+        "success": true,
+        "details": "Approved: 0.1 lots",
+        "timestamp": "2025-09-19T18:14:05.579564",
+        "data": {
+          "approved_lot_size": 0.1
+        }
+      },
+      "SP500ft": {
+        "success": true,
+        "details": "Approved: 0.1 lots",
+        "timestamp": "2025-09-19T18:14:05.579801",
+        "data": {
+          "approved_lot_size": 0.1
+        }
+      },
+      "USOUSD": {
+        "success": true,
+        "details": "Approved: 0.01 lots",
+        "timestamp": "2025-09-19T18:14:05.580036",
+        "data": {
+          "approved_lot_size": 0.01
+        }
+      }
+    },
+    "order_execution": {
+      "BTCUSD_BUY": {
+        "success": true,
+        "details": "Executed @ $115960.53",
+        "timestamp": "2025-09-19T18:14:14.501317",
+        "data": {
+          "price": 115960.53,
+          "volume": 0.01
+        }
+      },
+      "ETHUSD_BUY": {
+        "success": true,
+        "details": "Executed @ $4484.71",
+        "timestamp": "2025-09-19T18:14:14.501620",
+        "data": {
+          "price": 4484.71,
+          "volume": 0.05
+        }
+      },
+      "SOLUSD_BUY": {
+        "success": true,
+        "details": "Executed @ $238.62",
+        "timestamp": "2025-09-19T18:14:14.501934",
+        "data": {
+          "price": 238.62,
+          "volume": 0.05
+        }
+      },
+      "US2000_BUY": {
+        "success": true,
+        "details": "Executed @ $2456.27",
+        "timestamp": "2025-09-19T18:14:14.502241",
+        "data": {
+          "price": 2456.27,
+          "volume": 0.1
+        }
+      },
+      "XRPUSD_BUY": {
+        "success": true,
+        "details": "Executed @ $3.0207",
+        "timestamp": "2025-09-19T18:14:14.502554",
+        "data": {
+          "price": 3.0207,
+          "volume": 0.05
+        }
+      },
+      "NAS100_BUY": {
+        "success": true,
+        "details": "Executed @ $24583.32",
+        "timestamp": "2025-09-19T18:14:14.503370",
+        "data": {
+          "price": 24583.32,
+          "volume": 0.1
+        }
+      },
+      "NAS100ft_BUY": {
+        "success": false,
+        "details": "Risk manager rejection: High exposure - reducing position size",
+        "timestamp": "2025-09-19T18:14:14.503656",
+        "data": {}
+      },
+      "SP500ft_BUY": {
+        "success": false,
+        "details": "Risk manager rejection: High exposure - reducing position size",
+        "timestamp": "2025-09-19T18:14:14.503997",
+        "data": {}
+      },
+      "USOUSD_BUY": {
+        "success": false,
+        "details": "Risk manager rejection: High exposure - reducing position size",
+        "timestamp": "2025-09-19T18:14:14.504371",
+        "data": {}
+      }
+    },
+    "position_management": {
+      "BTCUSD_CLOSE": {
+        "success": false,
+        "details": "Position still open",
+        "timestamp": "2025-09-19T18:14:19.520468",
+        "data": {}
+      },
+      "ETHUSD_CLOSE": {
+        "success": false,
+        "details": "Position still open",
+        "timestamp": "2025-09-19T18:14:19.520548",
+        "data": {}
+      },
+      "SOLUSD_CLOSE": {
+        "success": false,
+        "details": "Position still open",
+        "timestamp": "2025-09-19T18:14:19.520600",
+        "data": {}
+      },
+      "US2000_CLOSE": {
+        "success": false,
+        "details": "Position still open",
+        "timestamp": "2025-09-19T18:14:19.520643",
+        "data": {}
+      },
+      "XRPUSD_CLOSE": {
+        "success": false,
+        "details": "Position still open",
+        "timestamp": "2025-09-19T18:14:19.520684",
+        "data": {}
+      },
+      "NAS100_CLOSE": {
+        "success": false,
+        "details": "Position still open",
+        "timestamp": "2025-09-19T18:14:19.520726",
+        "data": {}
+      }
+    }
+  },
+  "symbol_groups": {
+    "crypto": [
+      "BTCUSD",
+      "ETHUSD",
+      "SOLUSD",
+      "XRPUSD"
+    ],
+    "indices": [
+      "US2000",
+      "NAS100",
+      "NAS100ft",
+      "SP500ft"
+    ],
+    "commodities": [
+      "USOUSD"
+    ]
+  },
+  "order_manager_stats": {
+    "total_orders": 6,
+    "successful_orders": 6,
+    "failed_orders": 0,
+    "avg_execution_time": 0.0,
+    "total_volume": 0.36,
+    "total_cost": 0.0,
+    "active_positions_count": 6,
+    "success_rate": 1.0,
+    "total_unrealized_pnl": -4.930000000000001,
+    "total_realized_pnl": 0
+  }
+}

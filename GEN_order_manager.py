@@ -337,25 +337,7 @@ class EnhancedOrderManager:
         """Submit order for execution"""
         self.logger.info(f"📝 Submitting order: {order_request.order_type.value} {order_request.volume} {order_request.symbol}")
         
-        # Validate order
-        valid, error = self.validate_order(order_request)
-        if not valid:
-            self.logger.error(f"❌ Order validation failed: {error}")
-            # Create failed result
-            result = OrderResult(
-                order_id=order_request.order_id,
-                mt5_order_id=None,
-                mt5_position_id=None,
-                status=OrderStatus.REJECTED,
-                executed_price=None,
-                executed_volume=None,
-                execution_time=datetime.now(),
-                error_message=error
-            )
-            self.order_results[order_request.order_id] = result
-            return order_request.order_id
-        
-        # Risk management check
+        # Risk management check FIRST - let risk manager determine correct lot size
         trade_request = TradeRequest(
             symbol=order_request.symbol,
             direction="BUY" if "BUY" in order_request.order_type.value else "SELL",
@@ -381,6 +363,24 @@ class EnhancedOrderManager:
         
         # Use approved lot size from risk manager
         order_request.volume = risk_decision.approved_lot_size
+        
+        # Validate order AFTER risk manager has set correct volume
+        valid, error = self.validate_order(order_request)
+        if not valid:
+            self.logger.error(f"❌ Order validation failed after risk approval: {error}")
+            # Create failed result
+            result = OrderResult(
+                order_id=order_request.order_id,
+                mt5_order_id=None,
+                mt5_position_id=None,
+                status=OrderStatus.REJECTED,
+                executed_price=None,
+                executed_volume=None,
+                execution_time=datetime.now(),
+                error_message=error
+            )
+            self.order_results[order_request.order_id] = result
+            return order_request.order_id
         
         # Add to pending orders queue
         priority = 10 - order_request.priority  # Lower number = higher priority
@@ -821,27 +821,40 @@ def main():
             print("❌ Failed to initialize order manager")
             return
         
-        # Example: Submit a test market buy order
-        print("\n📝 Submitting test market buy order...")
-        buy_order = create_market_buy_order(
-            symbol="BTCUSD",
-            volume=0.01,
-            comment="Test Market Buy",
-            strategy_id="TestStrategy"
-        )
+        # Get all tradeable symbols for comprehensive testing
+        tradeable_symbols = risk_manager.get_tradeable_symbols()[:3]  # Test first 3 for speed
+        print(f"\n📝 Testing market orders on {len(tradeable_symbols)} symbols: {tradeable_symbols}")
         
-        order_id = order_manager.submit_order(buy_order)
-        print(f"✅ Order submitted: {order_id}")
+        submitted_orders = []
+        for symbol in tradeable_symbols:
+            buy_order = create_market_buy_order(
+                symbol=symbol,
+                volume=0.01,  # Will be adjusted by risk manager
+                comment=f"Test Market Buy {symbol}",
+                strategy_id="TestStrategy"
+            )
+            
+            order_id = order_manager.submit_order(buy_order)
+            submitted_orders.append((symbol, order_id))
+            print(f"✅ {symbol}: Order submitted ({order_id})")
+        
         
         # Wait for execution
-        time.sleep(3)
+        print(f"⏱️ Waiting 5 seconds for order execution...")
+        time.sleep(5)
         
-        # Check order status
-        result = order_manager.get_order_status(order_id)
-        if result:
-            print(f"📊 Order status: {result.status.value}")
-            if result.status == OrderStatus.FILLED:
-                print(f"💰 Executed at: ${result.executed_price}")
+        # Check order status for all submitted orders
+        print(f"\n📊 Checking order execution status:")
+        for symbol, order_id in submitted_orders:
+            result = order_manager.get_order_status(order_id)
+            if result:
+                print(f"  {symbol}: {result.status.value}", end="")
+                if result.status == OrderStatus.FILLED:
+                    print(f" @ ${result.executed_price}")
+                else:
+                    print(f" - {result.error_message or 'Pending'}")
+            else:
+                print(f"  {symbol}: No result found")
         
         # Check active positions
         positions = order_manager.get_active_positions()
@@ -858,13 +871,17 @@ def main():
         
         # Wait a bit then close any open positions
         time.sleep(2)
+        positions = order_manager.get_active_positions()
         if positions:
             print(f"\n🔄 Closing {len(positions)} test positions...")
-            for ticket in positions.keys():
-                order_manager.close_position(ticket)
+            close_orders = []
+            for ticket, position in positions.items():
+                close_order_id = order_manager.close_position(ticket)
+                close_orders.append((position.symbol, close_order_id))
+                print(f"  {position.symbol}: Close order submitted ({close_order_id})")
             
             time.sleep(3)
-            print("✅ Test positions closed")
+            print("✅ All test positions closed")
         
     except Exception as e:
         print(f"💥 Test failed: {e}")

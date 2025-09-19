@@ -1,0 +1,114 @@
+{
+  "execution_statistics": {
+    "total_orders": 6,
+    "successful_orders": 6,
+    "failed_orders": 0,
+    "avg_execution_time": 0.0,
+    "total_volume": 0.36,
+    "total_cost": 0.0,
+    "active_positions_count": 6,
+    "success_rate": 1.0,
+    "total_unrealized_pnl": -4.930000000000001,
+    "total_realized_pnl": 0
+  },
+  "active_positions": {
+    "27461282": {
+      "symbol": "BTCUSD",
+      "volume": 0.01,
+      "type": "BUY",
+      "open_price": 115960.53,
+      "current_price": 115942.95,
+      "unrealized_pnl": -0.18,
+      "open_time": "2025-09-19T18:14:06.008392"
+    },
+    "27461290": {
+      "symbol": "ETHUSD",
+      "volume": 0.05,
+      "type": "BUY",
+      "open_price": 4484.71,
+      "current_price": 4480.8,
+      "unrealized_pnl": -0.2,
+      "open_time": "2025-09-19T18:14:06.106996"
+    },
+    "27461296": {
+      "symbol": "SOLUSD",
+      "volume": 0.05,
+      "type": "BUY",
+      "open_price": 238.62,
+      "current_price": 238.05,
+      "unrealized_pnl": -0.28,
+      "open_time": "2025-09-19T18:14:06.205797"
+    },
+    "27461297": {
+      "symbol": "US2000",
+      "volume": 0.1,
+      "type": "BUY",
+      "open_price": 2456.27,
+      "current_price": 2455.45,
+      "unrealized_pnl": -0.08,
+      "open_time": "2025-09-19T18:14:06.303495"
+    },
+    "27461298": {
+      "symbol": "XRPUSD",
+      "volume": 0.05,
+      "type": "BUY",
+      "open_price": 3.0207,
+      "current_price": 3.0118,
+      "unrealized_pnl": -4.45,
+      "open_time": "2025-09-19T18:14:06.401232"
+    },
+    "27461300": {
+      "symbol": "NAS100",
+      "volume": 0.1,
+      "type": "BUY",
+      "open_price": 24583.32,
+      "current_price": 24585.87,
+      "unrealized_pnl": 0.26,
+      "open_time": "2025-09-19T18:14:06.499061"
+    }
+  },
+  "recent_orders": [
+    {
+      "order_id": "3280679e",
+      "status": "FILLED",
+      "executed_price": 115960.53,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:14:06.008030"
+    },
+    {
+      "order_id": "5dc17658",
+      "status": "FILLED",
+      "executed_price": 4484.71,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:14:06.106670"
+    },
+    {
+      "order_id": "a760be09",
+      "status": "FILLED",
+      "executed_price": 238.62,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:14:06.205488"
+    },
+    {
+      "order_id": "6e6884a2",
+      "status": "FILLED",
+      "executed_price": 2456.27,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:14:06.303146"
+    },
+    {
+      "order_id": "fd928653",
+      "status": "FILLED",
+      "executed_price": 3.0207,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:14:06.400860"
+    },
+    {
+      "order_id": "e7cbbb7f",
+      "status": "FILLED",
+      "executed_price": 24583.32,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:14:06.498671"
+    }
+  ]
+}
