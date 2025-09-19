@@ -46,6 +46,67 @@
       "min_lot": 0.01,
       "coefficient": 1,
       "asset_class": "commodity"
+    },
+    "XLMUSD": {
+      "min_lot": 0.01,
+      "coefficient": 5,
+      "asset_class": "crypto"
+    },
+    
+    "AUDUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "EURUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "GBPUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "NZDUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "USDCAD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "USDCHF": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "USDJPY": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "USDCNH": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "USDSEK": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "forex"
+    },
+    "XAUUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "precious_metal"
+    },
+    "XAGUSD": {
+      "min_lot": 0.01,
+      "coefficient": 1,
+      "asset_class": "precious_metal"
     }
   },
   "market_condition_multipliers": {

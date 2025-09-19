@@ -129,9 +129,9 @@ class CoefficientBasedRiskManager:
         
         # Risk limits (hard-coded safety limits) - Relaxed for comprehensive testing
         self.HARD_LIMITS = {
-            "max_daily_loss_percent": 10.0,  # Increased for testing
-            "max_total_exposure_percent": 50.0,  # Increased for multi-symbol testing
-            "max_drawdown_percent": 20.0,  # Increased for testing
+            "max_daily_loss_percent": 15.0,  # Increased for testing
+            "max_total_exposure_percent": 90.0,  # Significantly increased for multi-symbol testing
+            "max_drawdown_percent": 25.0,  # Increased for testing
             "max_positions_per_symbol": 1,
             "max_total_positions": 9,  # One per symbol max
             "min_account_balance": 1000.0
@@ -194,6 +194,7 @@ class CoefficientBasedRiskManager:
                 "ETHUSD": {"min_lot": 0.01, "coefficient": 5, "asset_class": "crypto"},
                 "SOLUSD": {"min_lot": 0.01, "coefficient": 5, "asset_class": "crypto"},
                 "XRPUSD": {"min_lot": 0.01, "coefficient": 5, "asset_class": "crypto"},
+                "XLMUSD": {"min_lot": 0.01, "coefficient": 5, "asset_class": "crypto"},
                 
                 # Index Assets (min_lot: 0.1, coefficient: 1) 
                 "US2000": {"min_lot": 0.1, "coefficient": 1, "asset_class": "index"},
