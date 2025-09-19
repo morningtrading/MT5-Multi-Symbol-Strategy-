@@ -1,0 +1,16 @@
+{
+  "execution_statistics": {
+    "total_orders": 0,
+    "successful_orders": 0,
+    "failed_orders": 0,
+    "avg_execution_time": 0.0,
+    "total_volume": 0.0,
+    "total_cost": 0.0,
+    "active_positions_count": 0,
+    "success_rate": 0.0,
+    "total_unrealized_pnl": 0,
+    "total_realized_pnl": 0
+  },
+  "active_positions": {},
+  "recent_orders": []
+}

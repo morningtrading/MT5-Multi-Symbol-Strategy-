@@ -151,7 +151,8 @@ class CoefficientBasedRiskManager:
         
         # File handler for risk decisions
         file_handler = logging.FileHandler(
-            logs_dir / f"risk_manager_{datetime.now().strftime('%Y%m%d')}.log"
+            logs_dir / f"risk_manager_{datetime.now().strftime('%Y%m%d')}.log",
+            encoding='utf-8'
         )
         file_handler.setLevel(logging.INFO)
         
@@ -268,6 +269,107 @@ class CoefficientBasedRiskManager:
                    if v.get('tradeable', False)]
         else:
             return list(self.risk_config['position_coefficients'].keys())
+    
+    def evaluate_trade(self, trade_request: TradeRequest) -> RiskDecision:
+        """Evaluate a trade request and return risk decision"""
+        self.logger.info(f"Evaluating trade: {trade_request.symbol} {trade_request.direction}")
+        
+        # Check if symbol is in our configuration
+        if trade_request.symbol not in self.risk_config['position_coefficients']:
+            return RiskDecision(
+                decision=TradeDecision.REJECTED,
+                approved_lot_size=0.0,
+                rejection_reason=f"Symbol {trade_request.symbol} not in risk configuration"
+            )
+        
+        # Get symbol configuration
+        symbol_config = self.risk_config['position_coefficients'][trade_request.symbol]
+        
+        # Calculate base lot size
+        min_lot = symbol_config['min_lot']
+        coefficient = symbol_config['coefficient']
+        
+        # Apply smart filtering if enabled
+        if self.risk_config.get('smart_filtering', {}).get('enabled', True):
+            # Apply BTC cap if applicable
+            if trade_request.symbol == 'BTCUSD':
+                smart_cap = symbol_config.get('smart_cap', 1.0)
+                coefficient = min(coefficient, smart_cap)
+        
+        # Calculate approved lot size
+        approved_lot_size = min_lot * coefficient
+        
+        # Apply market condition multiplier
+        condition_multiplier = self.risk_config['market_condition_multipliers'].get(
+            self.current_market_condition.value, 1.0
+        )
+        approved_lot_size *= condition_multiplier
+        
+        # Check account safety
+        try:
+            account_metrics = self.get_current_account_metrics()
+            if account_metrics:
+                # Check if we're approaching risk limits
+                if account_metrics.daily_pnl < -self.HARD_LIMITS['max_daily_loss_percent'] * account_metrics.balance / 100:
+                    return RiskDecision(
+                        decision=TradeDecision.REJECTED,
+                        approved_lot_size=0.0,
+                        rejection_reason="Daily loss limit exceeded"
+                    )
+                
+                # Check total exposure
+                if account_metrics.total_exposure > self.HARD_LIMITS['max_total_exposure_percent'] * account_metrics.balance / 100:
+                    return RiskDecision(
+                        decision=TradeDecision.REDUCED,
+                        approved_lot_size=approved_lot_size * 0.5,
+                        rejection_reason="High exposure - reducing position size"
+                    )
+        
+        except Exception as e:
+            self.logger.warning(f"Could not get account metrics for safety check: {e}")
+        
+        # Approve the trade
+        self.logger.info(f"Trade approved: {approved_lot_size} lots for {trade_request.symbol}")
+        
+        return RiskDecision(
+            decision=TradeDecision.APPROVED,
+            approved_lot_size=approved_lot_size,
+            risk_metrics={
+                "base_coefficient": coefficient,
+                "market_multiplier": condition_multiplier,
+                "symbol_class": symbol_config.get('asset_class', 'unknown')
+            }
+        )
+    
+    def get_current_account_metrics(self) -> Optional[AccountMetrics]:
+        """Get current account metrics from MT5"""
+        try:
+            import MetaTrader5 as mt5
+            
+            account_info = mt5.account_info()
+            if account_info is None:
+                return None
+            
+            positions = mt5.positions_get()
+            total_exposure = sum(abs(pos.volume * pos.price_current) for pos in positions) if positions else 0.0
+            
+            # Calculate daily P&L (simplified - would need more sophisticated tracking)
+            daily_pnl = account_info.equity - account_info.balance
+            
+            return AccountMetrics(
+                balance=account_info.balance,
+                equity=account_info.equity,
+                free_margin=account_info.margin_free,
+                margin_level=account_info.margin_level,
+                daily_pnl=daily_pnl,
+                total_exposure=total_exposure,
+                drawdown_percent=max(0, (account_info.balance - account_info.equity) / account_info.balance * 100),
+                open_positions=len(positions) if positions else 0
+            )
+        
+        except Exception as e:
+            self.logger.error(f"Failed to get account metrics: {e}")
+            return None
             
     def calculate_position_size(self, symbol: str, market_condition_override: Optional[MarketCondition] = None) -> float:
         """
