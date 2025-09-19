@@ -1,0 +1,492 @@
+{
+  "metadata": {
+    "test_date": "2025-09-19T15:56:04.451510",
+    "tester_version": "1.0",
+    "test_duration": 10.824560642242432,
+    "mt5_account": 774491,
+    "mt5_server": "MonetaMarkets-Demo"
+  },
+  "summary": {
+    "overall_status": "READY",
+    "total_tests": 6,
+    "successful_tests": 5,
+    "success_rate_percent": 83.33333333333334,
+    "critical_systems_passed": true,
+    "order_tests": {
+      "total_orders": 9,
+      "successful_orders": 9,
+      "success_rate_percent": 100.0
+    }
+  },
+  "test_results": [
+    {
+      "test_name": "MT5 Connection",
+      "success": true,
+      "details": "Connected to MT5 v500",
+      "execution_time": 0.01307368278503418,
+      "error_message": "",
+      "data": {
+        "terminal_info": {
+          "community_account": true,
+          "community_connection": true,
+          "connected": true,
+          "dlls_allowed": true,
+          "trade_allowed": true,
+          "tradeapi_disabled": false,
+          "email_enabled": false,
+          "ftp_enabled": false,
+          "notifications_enabled": false,
+          "mqid": true,
+          "build": 5280,
+          "maxbars": 100000,
+          "codepage": 0,
+          "ping_last": 100005,
+          "community_balance": 31.85,
+          "retransmission": 2.168396157474456,
+          "company": "MetaQuotes Ltd.",
+          "name": "MetaTrader 5",
+          "language": "English",
+          "path": "C:\\Program Files\\MetaTrader 5",
+          "data_path": "C:\\Users\\User\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075",
+          "commondata_path": "C:\\Users\\User\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common"
+        },
+        "version_info": [
+          500,
+          5280,
+          "18 Sep 2025"
+        ],
+        "connection_state": "connected"
+      }
+    },
+    {
+      "test_name": "Account Information",
+      "success": true,
+      "details": "Account: 774491@MonetaMarkets-Demo, Balance: 10001.77 USD",
+      "execution_time": 6.914138793945312e-05,
+      "error_message": "",
+      "data": {
+        "login": 774491,
+        "server": "MonetaMarkets-Demo",
+        "name": "Emmaunuel Francois Simon Vicari",
+        "company": "Moneta Markets (Pty) Ltd",
+        "currency": "USD",
+        "balance": 10001.77,
+        "equity": 10001.77,
+        "margin": 0.0,
+        "free_margin": 10001.77,
+        "margin_level": 0.0,
+        "leverage": 500,
+        "trade_allowed": true,
+        "trade_expert": true
+      }
+    },
+    {
+      "test_name": "Symbol Access",
+      "success": true,
+      "details": "9/9 symbols accessible and ready for trading",
+      "execution_time": 0.0011296272277832031,
+      "error_message": "",
+      "data": {
+        "BTCUSD": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1.0,
+          "min_lot": 0.01,
+          "max_lot": 100.0,
+          "lot_step": 0.01,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 1710,
+          "currency_base": "BTC",
+          "currency_profit": "USD",
+          "currency_margin": "BTC"
+        },
+        "ETHUSD": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1.0,
+          "min_lot": 0.01,
+          "max_lot": 100.0,
+          "lot_step": 0.01,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 301,
+          "currency_base": "ETH",
+          "currency_profit": "USD",
+          "currency_margin": "ETH"
+        },
+        "SOLUSD": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 10.0,
+          "min_lot": 0.01,
+          "max_lot": 100.0,
+          "lot_step": 0.01,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 55,
+          "currency_base": "SOL",
+          "currency_profit": "USD",
+          "currency_margin": "SOL"
+        },
+        "XRPUSD": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 10000.0,
+          "min_lot": 0.01,
+          "max_lot": 100.0,
+          "lot_step": 0.01,
+          "point": 0.0001,
+          "digits": 4,
+          "spread": 82,
+          "currency_base": "XRP",
+          "currency_profit": "USD",
+          "currency_margin": "XRP"
+        },
+        "US2000": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1.0,
+          "min_lot": 0.1,
+          "max_lot": 500.0,
+          "lot_step": 0.1,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 62,
+          "currency_base": "USD",
+          "currency_profit": "USD",
+          "currency_margin": "USD"
+        },
+        "NAS100": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1.0,
+          "min_lot": 0.1,
+          "max_lot": 500.0,
+          "lot_step": 0.1,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 70,
+          "currency_base": "USD",
+          "currency_profit": "USD",
+          "currency_margin": "USD"
+        },
+        "NAS100ft": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1.0,
+          "min_lot": 0.1,
+          "max_lot": 500.0,
+          "lot_step": 0.1,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 170,
+          "currency_base": "USD",
+          "currency_profit": "USD",
+          "currency_margin": "USD"
+        },
+        "SP500ft": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1.0,
+          "min_lot": 0.1,
+          "max_lot": 500.0,
+          "lot_step": 0.1,
+          "point": 0.01,
+          "digits": 2,
+          "spread": 129,
+          "currency_base": "USD",
+          "currency_profit": "USD",
+          "currency_margin": "USD"
+        },
+        "USOUSD": {
+          "accessible": true,
+          "visible": true,
+          "trade_mode": 4,
+          "trade_mode_desc": "FULL",
+          "contract_size": 1000.0,
+          "min_lot": 0.01,
+          "max_lot": 20.0,
+          "lot_step": 0.01,
+          "point": 0.001,
+          "digits": 3,
+          "spread": 23,
+          "currency_base": "USD",
+          "currency_profit": "USD",
+          "currency_margin": "USD"
+        }
+      }
+    },
+    {
+      "test_name": "Risk Calculations",
+      "success": false,
+      "details": "Risk too high: Est. $8026.52 > $50.0",
+      "execution_time": 0.0015301704406738281,
+      "error_message": "",
+      "data": {
+        "account_balance": 10001.77,
+        "account_currency": "USD",
+        "free_margin": 10001.77,
+        "margin_level": 0.0,
+        "symbol_lot_sizes": {},
+        "max_test_risk_usd": 50.0,
+        "position_values": {
+          "BTCUSD": {
+            "contract_size": 1.0,
+            "lot_size_used": 0.01,
+            "current_price": 116364.5,
+            "position_value": 1163.645,
+            "currency": "USD"
+          },
+          "ETHUSD": {
+            "contract_size": 1.0,
+            "lot_size_used": 0.01,
+            "current_price": 4533.47,
+            "position_value": 45.334700000000005,
+            "currency": "USD"
+          },
+          "SOLUSD": {
+            "contract_size": 10.0,
+            "lot_size_used": 0.01,
+            "current_price": 242.25,
+            "position_value": 24.225,
+            "currency": "USD"
+          },
+          "XRPUSD": {
+            "contract_size": 10000.0,
+            "lot_size_used": 0.01,
+            "current_price": 3.0408,
+            "position_value": 304.08,
+            "currency": "USD"
+          },
+          "US2000": {
+            "contract_size": 1.0,
+            "lot_size_used": 0.1,
+            "current_price": 2467.27,
+            "position_value": 246.727,
+            "currency": "USD"
+          },
+          "NAS100": {
+            "contract_size": 1.0,
+            "lot_size_used": 0.1,
+            "current_price": 24589.57,
+            "position_value": 2458.9570000000003,
+            "currency": "USD"
+          },
+          "NAS100ft": {
+            "contract_size": 1.0,
+            "lot_size_used": 0.1,
+            "current_price": 24810.85,
+            "position_value": 2481.085,
+            "currency": "USD"
+          },
+          "SP500ft": {
+            "contract_size": 1.0,
+            "lot_size_used": 0.1,
+            "current_price": 6710.03,
+            "position_value": 671.003,
+            "currency": "USD"
+          },
+          "USOUSD": {
+            "contract_size": 1000.0,
+            "lot_size_used": 0.01,
+            "current_price": 63.146,
+            "position_value": 631.46,
+            "currency": "USD"
+          }
+        },
+        "estimated_total_risk_usd": 8026.5167,
+        "risk_within_limits": false
+      }
+    },
+    {
+      "test_name": "Order Execution",
+      "success": true,
+      "details": "Order execution: 9/9 successful (100.0%)",
+      "execution_time": 10.808680295944214,
+      "error_message": "",
+      "data": {
+        "BTCUSD_market_buy": {
+          "success": true,
+          "execution_price": 116364.5,
+          "execution_time": 0.1068873405456543,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "ETHUSD_market_buy": {
+          "success": true,
+          "execution_price": 4533.48,
+          "execution_time": 0.09955406188964844,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "SOLUSD_market_buy": {
+          "success": true,
+          "execution_price": 242.25,
+          "execution_time": 0.09753131866455078,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "XRPUSD_market_buy": {
+          "success": true,
+          "execution_price": 3.0408,
+          "execution_time": 0.09714293479919434,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "US2000_market_buy": {
+          "success": true,
+          "execution_price": 2467.02,
+          "execution_time": 0.10229134559631348,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "NAS100_market_buy": {
+          "success": true,
+          "execution_price": 24588.82,
+          "execution_time": 0.09923529624938965,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "NAS100ft_market_buy": {
+          "success": true,
+          "execution_price": 24810.15,
+          "execution_time": 0.10779285430908203,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "SP500ft_market_buy": {
+          "success": true,
+          "execution_price": 6709.78,
+          "execution_time": 0.09802842140197754,
+          "closed_successfully": true,
+          "error": ""
+        },
+        "USOUSD_market_buy": {
+          "success": true,
+          "execution_price": 63.176,
+          "execution_time": 0.09982419013977051,
+          "closed_successfully": true,
+          "error": ""
+        }
+      }
+    },
+    {
+      "test_name": "Position Cleanup",
+      "success": true,
+      "details": "No positions to clean up",
+      "execution_time": 7.772445678710938e-05,
+      "error_message": "",
+      "data": {
+        "positions_closed": 0
+      }
+    }
+  ],
+  "order_results": [
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "BTCUSD",
+      "success": true,
+      "execution_price": 116364.5,
+      "execution_time": 0.1068873405456543,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "ETHUSD",
+      "success": true,
+      "execution_price": 4533.48,
+      "execution_time": 0.09955406188964844,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "SOLUSD",
+      "success": true,
+      "execution_price": 242.25,
+      "execution_time": 0.09753131866455078,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "XRPUSD",
+      "success": true,
+      "execution_price": 3.0408,
+      "execution_time": 0.09714293479919434,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "US2000",
+      "success": true,
+      "execution_price": 2467.02,
+      "execution_time": 0.10229134559631348,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "NAS100",
+      "success": true,
+      "execution_price": 24588.82,
+      "execution_time": 0.09923529624938965,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "NAS100ft",
+      "success": true,
+      "execution_price": 24810.15,
+      "execution_time": 0.10779285430908203,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "SP500ft",
+      "success": true,
+      "execution_price": 6709.78,
+      "execution_time": 0.09802842140197754,
+      "closed_successfully": true,
+      "error_message": ""
+    },
+    {
+      "order_type": "MARKET_BUY",
+      "symbol": "USOUSD",
+      "success": true,
+      "execution_price": 63.176,
+      "execution_time": 0.09982419013977051,
+      "closed_successfully": true,
+      "error_message": ""
+    }
+  ],
+  "recommendations": [
+    "\u2705 MT5 trading infrastructure is ready for strategy development",
+    "\u2705 All critical systems are functioning properly",
+    "\u26a0\ufe0f Some non-critical tests failed - review test results",
+    "\ud83d\udcc8 Proceed with risk manager development (risk_manager.py)",
+    "\ud83c\udfaf Focus initial strategy development on successfully tested symbols",
+    "\ud83d\udd04 Run this tester regularly to monitor trading infrastructure health"
+  ]
+}

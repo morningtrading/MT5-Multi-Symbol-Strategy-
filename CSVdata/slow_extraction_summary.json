@@ -1,0 +1,24 @@
+{
+  "extraction_settings": {
+    "sleep_between_requests": 2.0,
+    "sleep_between_symbols": 5.0,
+    "max_retries": 5,
+    "chunk_size": 10000
+  },
+  "statistics": {
+    "symbols_processed": 1,
+    "symbols_successful": 1,
+    "symbols_failed": 0,
+    "total_bars": 30120,
+    "total_retries": 0,
+    "start_time": "2025-09-19 14:37:01.854739",
+    "end_time": "2025-09-19 14:37:09.069046"
+  },
+  "results": {
+    "NAS100ft": {
+      "success": true,
+      "timestamp": "2025-09-19T14:37:09.069023"
+    }
+  },
+  "timestamp": "2025-09-19T14:37:09.070530"
+}

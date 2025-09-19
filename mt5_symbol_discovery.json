@@ -1,0 +1,86 @@
+{
+  "exact_matches": [
+    "AUDUSD",
+    "BTCUSD",
+    "ETHUSD",
+    "EURUSD",
+    "GBPUSD",
+    "NZDUSD",
+    "SOLUSD",
+    "US2000",
+    "USDCAD",
+    "USDJPY",
+    "XRPUSD"
+  ],
+  "partial_matches": {
+    "US30": [
+      "U"
+    ],
+    "US500": [
+      "U"
+    ],
+    "USDCHF": [
+      "D",
+      "F",
+      "U",
+      "USDCHF+"
+    ],
+    "USDCNH": [
+      "D",
+      "U",
+      "USDCNH+"
+    ],
+    "USDSEK": [
+      "D",
+      "K",
+      "SE",
+      "U",
+      "SDS",
+      "USDSEK+"
+    ],
+    "USO.NYSE": [
+      "SE",
+      "SO",
+      "U",
+      "USOUSD",
+      "USO"
+    ],
+    "USTEC": [
+      "EC",
+      "U"
+    ],
+    "XAUUSD": [
+      "UU",
+      "A",
+      "D",
+      "U",
+      "XAUUSD+",
+      "XAUUSD.crp"
+    ]
+  },
+  "popular_forex": [
+    "XAGAUD",
+    "XAGUSD",
+    "WIFUSD",
+    "ADAUSD",
+    "ALGUSD",
+    "AVAUSD",
+    "BATUSD",
+    "BCHUSD",
+    "BTCEUR",
+    "BTCUSD"
+  ],
+  "popular_crypto": [
+    "BTCUSD",
+    "ETHUSD",
+    "SOLUSD",
+    "XRPUSD"
+  ],
+  "popular_indices": [
+    "NAS100",
+    "NAS100ft",
+    "SP500",
+    "SP500ft",
+    "BVSPX"
+  ]
+}
