@@ -337,32 +337,36 @@ class EnhancedOrderManager:
         """Submit order for execution"""
         self.logger.info(f"📝 Submitting order: {order_request.order_type.value} {order_request.volume} {order_request.symbol}")
         
-        # Risk management check FIRST - let risk manager determine correct lot size
-        trade_request = TradeRequest(
-            symbol=order_request.symbol,
-            direction="BUY" if "BUY" in order_request.order_type.value else "SELL",
-            strategy_id=order_request.strategy_id,
-            confidence=1.0
-        )
-        
-        risk_decision = self.risk_manager.evaluate_trade(trade_request)
-        if risk_decision.decision.value != "approved":
-            self.logger.warning(f"⚠️ Order rejected by risk manager: {risk_decision.rejection_reason}")
-            result = OrderResult(
-                order_id=order_request.order_id,
-                mt5_order_id=None,
-                mt5_position_id=None,
-                status=OrderStatus.REJECTED,
-                executed_price=None,
-                executed_volume=None,
-                execution_time=datetime.now(),
-                error_message=f"Risk manager rejection: {risk_decision.rejection_reason}"
+        # Skip risk management for position closures (they reduce risk, not increase it)
+        if order_request.order_type == OrderType.CLOSE_POSITION:
+            self.logger.info(f"🔄 Position closure order - bypassing risk manager")
+        else:
+            # Risk management check FIRST - let risk manager determine correct lot size
+            trade_request = TradeRequest(
+                symbol=order_request.symbol,
+                direction="BUY" if "BUY" in order_request.order_type.value else "SELL",
+                strategy_id=order_request.strategy_id,
+                confidence=1.0
             )
-            self.order_results[order_request.order_id] = result
-            return order_request.order_id
-        
-        # Use approved lot size from risk manager
-        order_request.volume = risk_decision.approved_lot_size
+            
+            risk_decision = self.risk_manager.evaluate_trade(trade_request)
+            if risk_decision.decision.value != "approved":
+                self.logger.warning(f"⚠️ Order rejected by risk manager: {risk_decision.rejection_reason}")
+                result = OrderResult(
+                    order_id=order_request.order_id,
+                    mt5_order_id=None,
+                    mt5_position_id=None,
+                    status=OrderStatus.REJECTED,
+                    executed_price=None,
+                    executed_volume=None,
+                    execution_time=datetime.now(),
+                    error_message=f"Risk manager rejection: {risk_decision.rejection_reason}"
+                )
+                self.order_results[order_request.order_id] = result
+                return order_request.order_id
+            
+            # Use approved lot size from risk manager
+            order_request.volume = risk_decision.approved_lot_size
         
         # Validate order AFTER risk manager has set correct volume
         valid, error = self.validate_order(order_request)

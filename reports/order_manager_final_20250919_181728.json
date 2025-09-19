@@ -1,0 +1,88 @@
+{
+  "execution_statistics": {
+    "total_orders": 1,
+    "successful_orders": 1,
+    "failed_orders": 0,
+    "avg_execution_time": 0.0,
+    "total_volume": 0.01,
+    "total_cost": 0.0,
+    "active_positions_count": 7,
+    "success_rate": 1.0,
+    "total_unrealized_pnl": -4.89,
+    "total_realized_pnl": 0
+  },
+  "active_positions": {
+    "27461282": {
+      "symbol": "BTCUSD",
+      "volume": 0.01,
+      "type": "BUY",
+      "open_price": 115960.53,
+      "current_price": 115985.22,
+      "unrealized_pnl": 0.24,
+      "open_time": "2025-09-19T21:14:04"
+    },
+    "27461290": {
+      "symbol": "ETHUSD",
+      "volume": 0.05,
+      "type": "BUY",
+      "open_price": 4484.71,
+      "current_price": 4482.43,
+      "unrealized_pnl": -0.12,
+      "open_time": "2025-09-19T21:14:05"
+    },
+    "27461296": {
+      "symbol": "SOLUSD",
+      "volume": 0.05,
+      "type": "BUY",
+      "open_price": 238.62,
+      "current_price": 238.2,
+      "unrealized_pnl": -0.21,
+      "open_time": "2025-09-19T21:14:05"
+    },
+    "27461297": {
+      "symbol": "US2000",
+      "volume": 0.1,
+      "type": "BUY",
+      "open_price": 2456.27,
+      "current_price": 2456.1,
+      "unrealized_pnl": -0.02,
+      "open_time": "2025-09-19T21:14:05"
+    },
+    "27461298": {
+      "symbol": "XRPUSD",
+      "volume": 0.05,
+      "type": "BUY",
+      "open_price": 3.0207,
+      "current_price": 3.0105,
+      "unrealized_pnl": -5.1,
+      "open_time": "2025-09-19T21:14:05"
+    },
+    "27461300": {
+      "symbol": "NAS100",
+      "volume": 0.1,
+      "type": "BUY",
+      "open_price": 24583.32,
+      "current_price": 24590.62,
+      "unrealized_pnl": 0.73,
+      "open_time": "2025-09-19T21:14:05"
+    },
+    "27461554": {
+      "symbol": "BTCUSD",
+      "volume": 0.01,
+      "type": "BUY",
+      "open_price": 116025.95,
+      "current_price": 115985.22,
+      "unrealized_pnl": -0.41,
+      "open_time": "2025-09-19T18:17:13.477126"
+    }
+  },
+  "recent_orders": [
+    {
+      "order_id": "1921b9ed",
+      "status": "FILLED",
+      "executed_price": 116025.95,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:17:13.476763"
+    }
+  ]
+}

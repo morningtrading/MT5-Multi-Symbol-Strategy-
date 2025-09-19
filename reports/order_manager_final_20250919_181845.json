@@ -1,0 +1,129 @@
+{
+  "execution_statistics": {
+    "total_orders": 16,
+    "successful_orders": 16,
+    "failed_orders": 0,
+    "avg_execution_time": 0.0,
+    "total_volume": 1.12,
+    "total_cost": 0.0,
+    "active_positions_count": 0,
+    "success_rate": 1.0,
+    "total_unrealized_pnl": 0,
+    "total_realized_pnl": 0.0
+  },
+  "active_positions": {},
+  "recent_orders": [
+    {
+      "order_id": "5e4f6d9e",
+      "status": "FILLED",
+      "executed_price": 115979.45,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:18:30.758365"
+    },
+    {
+      "order_id": "318638f3",
+      "status": "FILLED",
+      "executed_price": 4485.46,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:18:30.858414"
+    },
+    {
+      "order_id": "a400830c",
+      "status": "FILLED",
+      "executed_price": 238.85,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:18:30.962035"
+    },
+    {
+      "order_id": "02fac324",
+      "status": "FILLED",
+      "executed_price": 2457.67,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:31.076426"
+    },
+    {
+      "order_id": "181404cf",
+      "status": "FILLED",
+      "executed_price": 3.0187,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:18:31.179393"
+    },
+    {
+      "order_id": "8c067320",
+      "status": "FILLED",
+      "executed_price": 24587.32,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:31.280609"
+    },
+    {
+      "order_id": "0e6698f2",
+      "status": "FILLED",
+      "executed_price": 24806.85,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:31.380725"
+    },
+    {
+      "order_id": "130b7eb7",
+      "status": "FILLED",
+      "executed_price": 6708.28,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:31.479798"
+    },
+    {
+      "order_id": "9399c8cf",
+      "status": "FILLED",
+      "executed_price": 115962.23,
+      "executed_volume": 0.01,
+      "execution_time": "2025-09-19T18:18:39.580887"
+    },
+    {
+      "order_id": "0ff9677b",
+      "status": "FILLED",
+      "executed_price": 4482.34,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:18:39.683470"
+    },
+    {
+      "order_id": "000e319e",
+      "status": "FILLED",
+      "executed_price": 238.34,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:18:39.785210"
+    },
+    {
+      "order_id": "6a9ff593",
+      "status": "FILLED",
+      "executed_price": 2456.9,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:39.890681"
+    },
+    {
+      "order_id": "5e3f2777",
+      "status": "FILLED",
+      "executed_price": 3.0104,
+      "executed_volume": 0.05,
+      "execution_time": "2025-09-19T18:18:39.988997"
+    },
+    {
+      "order_id": "1397e474",
+      "status": "FILLED",
+      "executed_price": 24585.37,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:40.088096"
+    },
+    {
+      "order_id": "1af19db6",
+      "status": "FILLED",
+      "executed_price": 24803.95,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:40.193757"
+    },
+    {
+      "order_id": "bb325a88",
+      "status": "FILLED",
+      "executed_price": 6706.74,
+      "executed_volume": 0.1,
+      "execution_time": "2025-09-19T18:18:40.293065"
+    }
+  ]
+}

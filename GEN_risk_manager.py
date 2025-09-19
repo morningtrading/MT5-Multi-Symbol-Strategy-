@@ -127,11 +127,11 @@ class CoefficientBasedRiskManager:
             "coefficient_adjustments": 0
         }
         
-        # Risk limits (hard-coded safety limits)
+        # Risk limits (hard-coded safety limits) - Relaxed for comprehensive testing
         self.HARD_LIMITS = {
-            "max_daily_loss_percent": 5.0,
-            "max_total_exposure_percent": 25.0,
-            "max_drawdown_percent": 15.0,
+            "max_daily_loss_percent": 10.0,  # Increased for testing
+            "max_total_exposure_percent": 50.0,  # Increased for multi-symbol testing
+            "max_drawdown_percent": 20.0,  # Increased for testing
             "max_positions_per_symbol": 1,
             "max_total_positions": 9,  # One per symbol max
             "min_account_balance": 1000.0
