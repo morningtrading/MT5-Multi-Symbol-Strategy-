@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "extraction_date": "2025-09-19T14:57:01.321805",
+    "extraction_date": "2025-09-19T18:33:17.530774",
     "extractor_version": "Enhanced-Fixed",
     "data_directory": "CSVdata",
     "extraction_settings": {
@@ -10,35 +10,54 @@
     }
   },
   "statistics": {
-    "symbols_processed": 9,
-    "symbols_successful": 9,
-    "symbols_failed": 0,
-    "total_bars": 321802,
+    "symbols_processed": 20,
+    "symbols_successful": 16,
+    "symbols_failed": 4,
+    "total_bars": 553114,
     "total_retries": 0,
-    "failed_symbols": [],
+    "failed_symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDCHF",
+      "USDJPY"
+    ],
     "successful_symbols": [
+      "AUDUSD",
       "BTCUSD",
       "ETHUSD",
+      "NZDUSD",
       "SOLUSD",
       "US2000",
+      "USDCAD",
+      "USDCNH",
+      "USDSEK",
+      "XAUUSD",
       "XRPUSD",
       "NAS100",
       "NAS100ft",
       "SP500ft",
-      "USOUSD"
+      "USOUSD",
+      "XLMUSD"
     ],
-    "start_time": "2025-09-19 14:56:34.321800",
-    "end_time": "2025-09-19 14:57:01.321042"
+    "start_time": "2025-09-19 18:32:12.053685",
+    "end_time": "2025-09-19 18:33:17.530073"
   },
   "successful_extractions": {
+    "AUDUSD": "GEN_AUDUSD_M1_1month.csv",
     "BTCUSD": "GEN_BTCUSD_M1_1month.csv",
     "ETHUSD": "GEN_ETHUSD_M1_1month.csv",
+    "NZDUSD": "GEN_NZDUSD_M1_1month.csv",
     "SOLUSD": "GEN_SOLUSD_M1_1month.csv",
     "US2000": "GEN_US2000_M1_1month.csv",
+    "USDCAD": "GEN_USDCAD_M1_1month.csv",
+    "USDCNH": "GEN_USDCNH_M1_1month.csv",
+    "USDSEK": "GEN_USDSEK_M1_1month.csv",
+    "XAUUSD": "GEN_XAUUSD_M1_1month.csv",
     "XRPUSD": "GEN_XRPUSD_M1_1month.csv",
     "NAS100": "GEN_NAS100_M1_1month.csv",
     "NAS100ft": "GEN_NAS100ft_M1_1month.csv",
     "SP500ft": "GEN_SP500ft_M1_1month.csv",
-    "USOUSD": "GEN_USOUSD_M1_1month.csv"
+    "USOUSD": "GEN_USOUSD_M1_1month.csv",
+    "XLMUSD": "GEN_XLMUSD_M1_1month.csv"
   }
 }

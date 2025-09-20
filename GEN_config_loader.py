@@ -156,10 +156,19 @@ class ConfigurationLoader:
     Loads and manages strategy configuration from external files
     """
     
-    def __init__(self, config_file: str = "GEN_strategy_config.json"):
+    def __init__(self, config_file: str = None):
         """Initialize configuration loader"""
+        # Support unified config or fallback to legacy
+        if config_file is None:
+            # Try unified config first, then fallback to legacy
+            if Path("GEN_unified_config.json").exists():
+                config_file = "GEN_unified_config.json"
+            else:
+                config_file = "GEN_strategy_config.json"
+        
         self.config_file = Path(config_file)
         self.logger = self.setup_logging()
+        self._is_unified_format = "unified" in str(self.config_file).lower()
         
         # Configuration cache
         self._config_cache = None

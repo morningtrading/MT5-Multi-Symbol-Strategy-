@@ -184,7 +184,22 @@ class CoefficientBasedRiskManager:
             return {}
             
     def load_risk_configuration(self) -> Dict:
-        """Load or create risk configuration with coefficient settings"""
+        """Load risk configuration from unified config or legacy files"""
+        
+        # Try to load from unified config first
+        try:
+            if os.path.exists("GEN_unified_config.json"):
+                with open("GEN_unified_config.json", 'r') as f:
+                    unified_config = json.load(f)
+                
+                # Extract risk configuration from unified format
+                risk_config = self._extract_risk_from_unified_config(unified_config)
+                self.logger.info(f"✅ Loaded risk configuration from unified config")
+                return risk_config
+        except Exception as e:
+            self.logger.warning(f"Failed to load unified config, falling back to legacy: {e}")
+        
+        # Fallback to legacy risk config format
         default_config = {
             "version": "1.0",
             "last_updated": datetime.now().isoformat(),
@@ -239,7 +254,7 @@ class CoefficientBasedRiskManager:
             if os.path.exists(self.config_path):
                 with open(self.config_path, 'r') as f:
                     config = json.load(f)
-                self.logger.info(f"✅ Loaded existing risk configuration")
+                self.logger.info(f"✅ Loaded existing legacy risk configuration")
                 return config
             else:
                 # Create default configuration
@@ -250,6 +265,38 @@ class CoefficientBasedRiskManager:
         except Exception as e:
             self.logger.error(f"❌ Failed to load risk configuration: {e}")
             return default_config
+    
+    def _extract_risk_from_unified_config(self, unified_config: Dict) -> Dict:
+        """Extract and convert risk configuration from unified format to legacy format"""
+        risk_mgmt = unified_config.get('risk_management', {})
+        symbol_specific = unified_config.get('symbol_specific', {})
+        
+        # Build position coefficients from symbol-specific data
+        position_coefficients = {}
+        for symbol, config in symbol_specific.items():
+            risk_params = config.get('risk_parameters', {})
+            if risk_params:
+                position_coefficients[symbol] = {
+                    'min_lot': risk_params.get('min_lot', 0.01),
+                    'coefficient': risk_params.get('coefficient', 1.0),
+                    'asset_class': risk_params.get('asset_class', 'unknown')
+                }
+        
+        # Convert to legacy format
+        return {
+            'version': unified_config.get('config_version', '2.0'),
+            'last_updated': unified_config.get('last_updated', datetime.now().isoformat()),
+            'position_coefficients': position_coefficients,
+            'market_condition_multipliers': risk_mgmt.get('market_condition_multipliers', {}),
+            'risk_limits': risk_mgmt.get('risk_limits', {}),
+            'performance_thresholds': risk_mgmt.get('performance_thresholds', {}),
+            'smart_filtering': {
+                'enabled': risk_mgmt.get('position_sizing', {}).get('use_smart_filtering', True),
+                'max_position_percent_of_account': risk_mgmt.get('position_sizing', {}).get('max_position_percent_account', 15.0),
+                'btc_max_coefficient': risk_mgmt.get('position_sizing', {}).get('btc_max_coefficient', 1.0),
+                'min_safe_coefficient': risk_mgmt.get('position_sizing', {}).get('min_safe_coefficient', 1.0)
+            }
+        }
             
     def save_risk_configuration(self):
         """Save current risk configuration to file"""

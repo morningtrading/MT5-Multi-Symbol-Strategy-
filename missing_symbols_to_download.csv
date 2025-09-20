@@ -1,0 +1,13 @@
+symbol,asset_class,priority,broker_symbol_alternatives,notes
+EURUSD,forex,HIGH,EUR/USD;EURUSD.fx,Major forex pair - critical for trading
+GBPUSD,forex,HIGH,GBP/USD;GBPUSD.fx,Major forex pair - critical for trading
+USDCHF,forex,HIGH,USD/CHF;USDCHF.fx,Major forex pair - critical for trading
+USDJPY,forex,HIGH,USD/JPY;USDJPY.fx,Major forex pair - critical for trading
+XAGUSD,precious_metal,MEDIUM,XAG/USD;SILVER;XAGUSD.fx;AG,Silver - check broker symbol naming
+US30,index,MEDIUM,DJI30;DOW30;US30.fx;YM,Dow Jones Industrial Average
+US500,index,MEDIUM,SPX500;SP500;US500.fx;ES,S&P 500 Index
+USTEC,index,MEDIUM,NAS100;NASDAQ;USTEC.fx;NQ,NASDAQ 100 Technology
+USO.NYSE,commodity,LOW,USO;USOUSD;OIL,Oil ETF - might not be available on MT5
+XAUUSD+,precious_metal,LOW,XAUUSD;GOLD+;XAU/USD,Gold variant - check if different from XAUUSD
+EURJPY,forex,MEDIUM,EUR/JPY;EURJPY.fx,Recently added cross pair
+ADAUSD,crypto,LOW,ADA/USD;CARDANO,Recently added - check crypto availability

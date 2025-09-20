@@ -9,7 +9,11 @@
     "SOLUSD",
     "US2000",
     "USDCAD",
+    "USDCHF",
+    "USDCNH",
     "USDJPY",
+    "USDSEK",
+    "XAUUSD",
     "XRPUSD"
   ],
   "partial_matches": {
@@ -18,25 +22,6 @@
     ],
     "US500": [
       "U"
-    ],
-    "USDCHF": [
-      "D",
-      "F",
-      "U",
-      "USDCHF+"
-    ],
-    "USDCNH": [
-      "D",
-      "U",
-      "USDCNH+"
-    ],
-    "USDSEK": [
-      "D",
-      "K",
-      "SE",
-      "U",
-      "SDS",
-      "USDSEK+"
     ],
     "USO.NYSE": [
       "SE",
@@ -48,27 +33,19 @@
     "USTEC": [
       "EC",
       "U"
-    ],
-    "XAUUSD": [
-      "UU",
-      "A",
-      "D",
-      "U",
-      "XAUUSD+",
-      "XAUUSD.crp"
     ]
   },
   "popular_forex": [
-    "XAGAUD",
-    "XAGUSD",
-    "WIFUSD",
-    "ADAUSD",
-    "ALGUSD",
-    "AVAUSD",
-    "BATUSD",
-    "BCHUSD",
-    "BTCEUR",
-    "BTCUSD"
+    "EURNOK",
+    "EURSEK",
+    "USDBRL",
+    "USDINR",
+    "USDMXN",
+    "USDPLN",
+    "USDZAR",
+    "AUDCAD",
+    "AUDCHF",
+    "AUDJPY"
   ],
   "popular_crypto": [
     "BTCUSD",
@@ -82,5 +59,7 @@
     "SP500",
     "SP500ft",
     "BVSPX"
-  ]
+  ],
+  "total_available": 974,
+  "discovery_time": "2025-09-20T11:31:12.453240"
 }

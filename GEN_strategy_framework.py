@@ -145,10 +145,10 @@ class BaseStrategy(ABC):
     """
     
     @classmethod
-    def from_config_file(cls, config_file: str = "GEN_strategy_config.json", 
+    def from_config_file(cls, config_file: str = None, 
                         risk_manager: Optional[CoefficientBasedRiskManager] = None):
         """Factory method to create strategy instance from configuration file"""
-        config_loader = ConfigurationLoader(config_file)
+        config_loader = ConfigurationLoader(config_file)  # None will auto-detect unified config
         return cls(config=None, risk_manager=risk_manager, config_loader=config_loader)
     
     def __init__(self, config: StrategyConfig = None, risk_manager: Optional[CoefficientBasedRiskManager] = None, 

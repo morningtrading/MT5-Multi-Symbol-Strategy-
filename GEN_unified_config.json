@@ -1,0 +1,491 @@
+{
+  "config_version": "2.0",
+  "last_updated": "2025-09-20T08:14:10.000000",
+  "description": "Multi-Symbol Strategy Framework Unified Configuration",
+  "migration_notes": "Merged from GEN_strategy_config.json v1.0 and risk_config.json v1.0",
+  
+  "strategy_settings": {
+    "strategy_name": "MultiSymbolMomentum",
+    "strategy_version": "1.0",
+    "enabled": true,
+    "symbols": [
+      "BTCUSD",
+      "ETHUSD", 
+      "SOLUSD",
+      "XRPUSD",
+      "US2000",
+      "NAS100",
+      "NAS100ft",
+      "SP500ft",
+      "USOUSD"
+    ],
+    "timeframe": "M1",
+    "max_concurrent_positions": 5,
+    "signal_cooldown_minutes": 3,
+    "min_confidence_threshold": 0.8,
+    "analysis_timeout_seconds": 30,
+    "data_cache_minutes": 1
+  },
+
+  "technical_analysis": {
+    "indicators": {
+      "moving_averages": {
+        "sma_fast": 20,
+        "sma_slow": 50,
+        "ema_fast": 12,
+        "ema_slow": 26
+      },
+      "macd": {
+        "fast_period": 12,
+        "slow_period": 26,
+        "signal_period": 9
+      },
+      "rsi": {
+        "period": 14,
+        "overbought_level": 70,
+        "oversold_level": 30
+      },
+      "bollinger_bands": {
+        "period": 20,
+        "std_dev_multiplier": 2.0
+      },
+      "atr": {
+        "period": 14
+      },
+      "volume": {
+        "sma_period": 20,
+        "volume_spike_multiplier": 2.0
+      }
+    },
+    "signal_conditions": {
+      "bullish": {
+        "sma_crossover": true,
+        "price_above_sma_fast": true,
+        "min_separation_percent": 0.1,
+        "rsi_min": 40,
+        "rsi_max": 80,
+        "volume_confirmation": false
+      },
+      "bearish": {
+        "sma_crossover": true,
+        "price_below_sma_fast": true,
+        "min_separation_percent": 0.1,
+        "rsi_min": 20,
+        "rsi_max": 60,
+        "volume_confirmation": false
+      },
+      "confidence_calculation": {
+        "base_confidence": 0.6,
+        "separation_multiplier": 10,
+        "max_confidence": 0.95,
+        "rsi_weight": 0.1,
+        "volume_weight": 0.05
+      }
+    }
+  },
+
+  "risk_management": {
+    "position_sizing": {
+      "use_smart_filtering": true,
+      "max_position_percent_account": 15.0,
+      "btc_max_coefficient": 1.0,
+      "min_safe_coefficient": 1.0
+    },
+    "exposure_limits": {
+      "max_total_exposure_percent": 25.0,
+      "max_daily_loss_percent": 5.0,
+      "max_drawdown_percent": 15.0,
+      "min_account_balance": 1000.0
+    },
+    "market_condition_multipliers": {
+      "normal": 1.0,
+      "bull_market": 1.2,
+      "bear_market": 0.5,
+      "high_volatility": 0.7,
+      "low_volatility": 1.3,
+      "news_event": 0.3,
+      "emergency": 0.1
+    },
+    "risk_limits": {
+      "daily_loss_limit_percent": 3.0,
+      "exposure_warning_percent": 20.0,
+      "drawdown_warning_percent": 10.0,
+      "max_correlation_warning": 0.7
+    },
+    "performance_thresholds": {
+      "coefficient_increase_win_rate": 0.65,
+      "coefficient_decrease_win_rate": 0.45,
+      "adjustment_frequency_days": 7,
+      "min_trades_for_adjustment": 20
+    }
+  },
+
+  "execution": {
+    "order_settings": {
+      "deviation_points": 20,
+      "order_timeout_seconds": 30,
+      "max_slippage_percent": 0.1,
+      "order_filling_type": "IOC"
+    },
+    "threading": {
+      "max_workers_per_symbol": 1,
+      "analysis_timeout_per_symbol": 30,
+      "concurrent_analysis": true
+    },
+    "data_management": {
+      "historical_bars": 1000,
+      "min_bars_for_analysis": 50,
+      "cache_refresh_minutes": 1,
+      "data_validation": true
+    }
+  },
+
+  "performance_tracking": {
+    "metrics": {
+      "track_signals_per_hour": true,
+      "track_win_rate": true,
+      "track_profit_factor": true,
+      "track_sharpe_ratio": true,
+      "track_max_drawdown": true,
+      "track_avg_trade_duration": true
+    },
+    "reporting": {
+      "auto_save_state": true,
+      "save_frequency_minutes": 30,
+      "keep_signal_history_count": 500,
+      "keep_trade_history_count": 100,
+      "performance_review_frequency_hours": 24
+    }
+  },
+
+  "logging": {
+    "levels": {
+      "strategy_level": "INFO",
+      "risk_manager_level": "INFO",
+      "execution_level": "INFO",
+      "console_level": "WARNING"
+    },
+    "files": {
+      "strategy_log_enabled": true,
+      "trade_log_enabled": true,
+      "performance_log_enabled": true,
+      "log_rotation_days": 7
+    }
+  },
+
+  "alerts": {
+    "conditions": {
+      "daily_loss_threshold": 3.0,
+      "drawdown_threshold": 10.0,
+      "consecutive_losses": 5,
+      "low_win_rate_threshold": 0.3,
+      "high_exposure_threshold": 20.0
+    },
+    "notifications": {
+      "console_alerts": true,
+      "file_alerts": true,
+      "email_alerts": false,
+      "webhook_alerts": false
+    }
+  },
+
+  "symbol_specific": {
+    "BTCUSD": {
+      "enabled": true,
+      "min_confidence_override": 0.8,
+      "signal_cooldown_override": 5,
+      "special_conditions": {
+        "high_volatility_filter": true,
+        "news_sensitivity": "high"
+      },
+      "risk_parameters": {
+        "min_lot": 0.01,
+        "coefficient": 5,
+        "asset_class": "crypto"
+      },
+      "technical_analysis": {
+        "sma_fast": 5,
+        "sma_slow": 15,
+        "ema_fast": 8,
+        "ema_slow": 21,
+        "macd_fast": 8,
+        "macd_slow": 17,
+        "macd_signal": 6,
+        "rsi_period": 10,
+        "rsi_overbought": 75,
+        "rsi_oversold": 25,
+        "bb_period": 15,
+        "bb_std_dev": 2.2,
+        "atr_period": 10,
+        "adx_period": 12,
+        "adx_strong_trend": 30,
+        "adx_very_strong_trend": 50,
+        "volume_sma_period": 15,
+        "volume_spike_multiplier": 2.5
+      }
+    },
+    "ETHUSD": {
+      "enabled": true,
+      "min_confidence_override": 0.75,
+      "correlation_with": ["BTCUSD"],
+      "correlation_threshold": 0.8,
+      "risk_parameters": {
+        "min_lot": 0.01,
+        "coefficient": 5,
+        "asset_class": "crypto"
+      },
+      "technical_analysis": {
+        "sma_fast": 7,
+        "sma_slow": 18,
+        "ema_fast": 10,
+        "ema_slow": 24,
+        "macd_fast": 10,
+        "macd_slow": 22,
+        "macd_signal": 7,
+        "rsi_period": 12,
+        "rsi_overbought": 72,
+        "rsi_oversold": 28,
+        "bb_period": 18,
+        "bb_std_dev": 2.1,
+        "atr_period": 12,
+        "adx_period": 14,
+        "adx_strong_trend": 28,
+        "adx_very_strong_trend": 45,
+        "volume_sma_period": 18,
+        "volume_spike_multiplier": 2.3
+      }
+    },
+    "SOLUSD": {
+      "enabled": true,
+      "min_confidence_override": 0.75,
+      "correlation_with": ["BTCUSD"],
+      "correlation_threshold": 0.75,
+      "risk_parameters": {
+        "min_lot": 0.01,
+        "coefficient": 5,
+        "asset_class": "crypto"
+      },
+      "technical_analysis": {
+        "sma_fast": 6,
+        "sma_slow": 16,
+        "ema_fast": 9,
+        "ema_slow": 22,
+        "macd_fast": 9,
+        "macd_slow": 19,
+        "macd_signal": 6,
+        "rsi_period": 11,
+        "rsi_overbought": 74,
+        "rsi_oversold": 26,
+        "bb_period": 16,
+        "bb_std_dev": 2.15,
+        "atr_period": 11,
+        "adx_period": 13,
+        "adx_strong_trend": 29,
+        "adx_very_strong_trend": 47,
+        "volume_sma_period": 16,
+        "volume_spike_multiplier": 2.4
+      }
+    },
+    "XRPUSD": {
+      "enabled": true,
+      "min_confidence_override": 0.72,
+      "correlation_with": ["BTCUSD"],
+      "correlation_threshold": 0.7,
+      "risk_parameters": {
+        "min_lot": 0.01,
+        "coefficient": 5,
+        "asset_class": "crypto"
+      },
+      "technical_analysis": {
+        "sma_fast": 8,
+        "sma_slow": 20,
+        "ema_fast": 11,
+        "ema_slow": 25,
+        "macd_fast": 11,
+        "macd_slow": 23,
+        "macd_signal": 8,
+        "rsi_period": 13,
+        "rsi_overbought": 73,
+        "rsi_oversold": 27,
+        "bb_period": 19,
+        "bb_std_dev": 2.05,
+        "atr_period": 13,
+        "adx_period": 15,
+        "adx_strong_trend": 27,
+        "adx_very_strong_trend": 43,
+        "volume_sma_period": 19,
+        "volume_spike_multiplier": 2.2
+      }
+    },
+    "US2000": {
+      "enabled": true,
+      "trading_hours_only": true,
+      "market_open_filter": true,
+      "min_confidence_override": 0.78,
+      "risk_parameters": {
+        "min_lot": 0.1,
+        "coefficient": 1,
+        "asset_class": "index"
+      },
+      "technical_analysis": {
+        "sma_fast": 15,
+        "sma_slow": 40,
+        "ema_fast": 12,
+        "ema_slow": 28,
+        "macd_fast": 12,
+        "macd_slow": 28,
+        "macd_signal": 9,
+        "rsi_period": 14,
+        "rsi_overbought": 72,
+        "rsi_oversold": 28,
+        "bb_period": 22,
+        "bb_std_dev": 1.9,
+        "atr_period": 15,
+        "adx_period": 14,
+        "adx_strong_trend": 26,
+        "adx_very_strong_trend": 42,
+        "volume_sma_period": 22,
+        "volume_spike_multiplier": 1.8
+      }
+    },
+    "NAS100": {
+      "enabled": true,
+      "trading_hours_only": true,
+      "market_open_filter": true,
+      "min_confidence_override": 0.76,
+      "risk_parameters": {
+        "min_lot": 0.1,
+        "coefficient": 1,
+        "asset_class": "index"
+      },
+      "technical_analysis": {
+        "sma_fast": 20,
+        "sma_slow": 50,
+        "ema_fast": 12,
+        "ema_slow": 26,
+        "macd_fast": 12,
+        "macd_slow": 26,
+        "macd_signal": 9,
+        "rsi_period": 14,
+        "rsi_overbought": 70,
+        "rsi_oversold": 30,
+        "bb_period": 20,
+        "bb_std_dev": 2.0,
+        "atr_period": 14,
+        "adx_period": 14,
+        "adx_strong_trend": 25,
+        "adx_very_strong_trend": 40,
+        "volume_sma_period": 20,
+        "volume_spike_multiplier": 2.0
+      }
+    },
+    "NAS100ft": {
+      "enabled": true,
+      "trading_hours_only": true,
+      "market_open_filter": true,
+      "min_confidence_override": 0.76,
+      "risk_parameters": {
+        "min_lot": 0.1,
+        "coefficient": 1,
+        "asset_class": "index"
+      },
+      "technical_analysis": {
+        "sma_fast": 18,
+        "sma_slow": 45,
+        "ema_fast": 11,
+        "ema_slow": 25,
+        "macd_fast": 11,
+        "macd_slow": 25,
+        "macd_signal": 8,
+        "rsi_period": 13,
+        "rsi_overbought": 71,
+        "rsi_oversold": 29,
+        "bb_period": 19,
+        "bb_std_dev": 2.05,
+        "atr_period": 13,
+        "adx_period": 13,
+        "adx_strong_trend": 26,
+        "adx_very_strong_trend": 41,
+        "volume_sma_period": 19,
+        "volume_spike_multiplier": 2.1
+      }
+    },
+    "SP500ft": {
+      "enabled": true,
+      "trading_hours_only": true,
+      "market_open_filter": true,
+      "min_confidence_override": 0.77,
+      "risk_parameters": {
+        "min_lot": 0.1,
+        "coefficient": 1,
+        "asset_class": "index"
+      },
+      "technical_analysis": {
+        "sma_fast": 22,
+        "sma_slow": 55,
+        "ema_fast": 13,
+        "ema_slow": 27,
+        "macd_fast": 13,
+        "macd_slow": 27,
+        "macd_signal": 10,
+        "rsi_period": 15,
+        "rsi_overbought": 69,
+        "rsi_oversold": 31,
+        "bb_period": 21,
+        "bb_std_dev": 1.95,
+        "atr_period": 15,
+        "adx_period": 15,
+        "adx_strong_trend": 24,
+        "adx_very_strong_trend": 39,
+        "volume_sma_period": 21,
+        "volume_spike_multiplier": 1.9
+      }
+    },
+    "USOUSD": {
+      "enabled": true,
+      "news_blackout_minutes": 30,
+      "economic_calendar_filter": true,
+      "min_confidence_override": 0.79,
+      "risk_parameters": {
+        "min_lot": 0.01,
+        "coefficient": 1,
+        "asset_class": "commodity"
+      },
+      "technical_analysis": {
+        "sma_fast": 25,
+        "sma_slow": 60,
+        "ema_fast": 15,
+        "ema_slow": 30,
+        "macd_fast": 15,
+        "macd_slow": 30,
+        "macd_signal": 12,
+        "rsi_period": 16,
+        "rsi_overbought": 68,
+        "rsi_oversold": 32,
+        "bb_period": 24,
+        "bb_std_dev": 1.8,
+        "atr_period": 16,
+        "adx_period": 16,
+        "adx_strong_trend": 23,
+        "adx_very_strong_trend": 37,
+        "volume_sma_period": 24,
+        "volume_spike_multiplier": 1.7
+      }
+    }
+  },
+
+  "development": {
+    "testing": {
+      "demo_mode": false,
+      "backtesting_mode": false,
+      "paper_trading": true,
+      "max_test_cycles": 10
+    },
+    "debugging": {
+      "verbose_logging": false,
+      "save_intermediate_data": false,
+      "profiling_enabled": false,
+      "memory_monitoring": false
+    }
+  }
+}
