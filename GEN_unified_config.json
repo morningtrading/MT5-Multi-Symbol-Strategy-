@@ -1,8 +1,8 @@
 {
-  "config_version": "2.0",
-  "last_updated": "2025-09-20T08:14:10.000000",
+  "config_version": "2.1",
+  "last_updated": "2025-09-20T13:37:00.000000",
   "description": "Multi-Symbol Strategy Framework Unified Configuration",
-  "migration_notes": "Merged from GEN_strategy_config.json v1.0 and risk_config.json v1.0",
+  "migration_notes": "v2.1: Added XAUUSD (Gold) with precious metal specific parameters",
   
   "strategy_settings": {
     "strategy_name": "MultiSymbolMomentum",
@@ -17,7 +17,8 @@
       "NAS100",
       "NAS100ft",
       "SP500ft",
-      "USOUSD"
+      "USOUSD",
+      "XAUUSD"
     ],
     "timeframe": "M1",
     "max_concurrent_positions": 5,
@@ -471,6 +472,82 @@
         "volume_sma_period": 24,
         "volume_spike_multiplier": 1.7
       }
+    },
+    "XAUUSD": {
+      "enabled": true,
+      "trading_hours_only": false,
+      "news_blackout_minutes": 60,
+      "economic_calendar_filter": true,
+      "min_confidence_override": 0.82,
+      "special_conditions": {
+        "safe_haven_filter": true,
+        "news_sensitivity": "very_high",
+        "correlation_with_dollar": true
+      },
+      "risk_parameters": {
+        "min_lot": 0.01,
+        "coefficient": 2,
+        "asset_class": "precious_metal"
+      },
+      "technical_analysis": {
+        "sma_fast": 20,
+        "sma_slow": 50,
+        "ema_fast": 12,
+        "ema_slow": 26,
+        "macd_fast": 12,
+        "macd_slow": 26,
+        "macd_signal": 9,
+        "rsi_period": 14,
+        "rsi_overbought": 70,
+        "rsi_oversold": 30,
+        "bb_period": 20,
+        "bb_std_dev": 2.0,
+        "atr_period": 14,
+        "adx_period": 14,
+        "adx_strong_trend": 25,
+        "adx_very_strong_trend": 40,
+        "volume_sma_period": 20,
+        "volume_spike_multiplier": 2.0
+      }
+    }
+  },
+
+  "multi_timeframe_strategy": {
+    "enabled": true,
+    "confluence_threshold": 0.6,
+    "max_timeframes": 6,
+    "signal_decay_hours": 4,
+    "timeframe_weights": {
+      "M1": 0.1,
+      "M5": 0.15,
+      "M15": 0.2,
+      "H1": 0.25,
+      "H4": 0.3,
+      "D1": 0.35
+    },
+    "indicators": {
+      "rsi_period": 14,
+      "rsi_oversold": 30,
+      "rsi_overbought": 70,
+      "macd_fast": 12,
+      "macd_slow": 26,
+      "macd_signal": 9,
+      "bb_period": 20,
+      "bb_std": 2,
+      "bb_lower_threshold": 0.2,
+      "bb_upper_threshold": 0.8,
+      "atr_period": 14,
+      "momentum_threshold": 0.02,
+      "sma_20": 20,
+      "sma_50": 50
+    },
+    "action_thresholds": {
+      "strong_buy_confluence": 0.8,
+      "strong_buy_strength": 0.8,
+      "buy_confluence": 0.6,
+      "buy_strength": 0.6,
+      "hold_max_strength": 0.6,
+      "risk_high_confluence": 0.6
     }
   },
 
